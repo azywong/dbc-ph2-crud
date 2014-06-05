@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -18,6 +18,26 @@
   <title></title>
 </head>
 <body>
+<header>
+  <span class="logo"><a href="/">NOTES</a></span>
+  <% if session[:user_id] != nil %>
+    <form id="logout" action="/logout" method="post">
+      <span class="headerlink"><input class="sub_button" type="submit" value="logout"></span>
+    </form>
+    <span class="headerlink"><a href="/user/<%= session[:user_id] %>">Your Notes</a></span>
+  <% else %>
+  <span class="headerlink">
+  <form id="log_in" action='/authenticate' method="post">
+        <ul>
+          <li>Username: <input type="text" name="username" size="10"></li>
+          <li>Password: <input type="password" name="password" size="10"></li>
+          <li><input class="sub_button" type="submit" value="Log In!"></li>
+        </ul>
+    </form>
+    <span class="newuser"><a href="/newuser">New User?</a></span></span>
+  <% end %>
+</header>
+
   <%= yield %>
 </body>
 </html>

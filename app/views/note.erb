@@ -1,8 +1,14 @@
 <div class="container">
   <h1>Note #<%= @note.id %></h1>
-  <form id="edit" action="/edit/<%= @note.id %>" method="get">
-    <p><input class="sub_button" type="submit" value="edit"></p>
-  </form>
+  <div class="notebutton">
+    <form id="edit" action="/edit/<%= @note.id %>" method="get">
+      <input class="sub_button" type="submit" value="edit">
+    </form>
+      <form id="delete" action="/delete/<%= @note.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input class="sub_button" type="submit" value="delete">
+    </form>
+</div>
   <dl>
     <dt><%= @note.title %></dt>
       <dd><%= @note.content %></dd>

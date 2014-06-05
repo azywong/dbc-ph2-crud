@@ -31,6 +31,13 @@ put '/edit/:id' do
   redirect "/note/#{params[:id]}"
 end
 
+delete '/delete/:id' do
+  @note = Note.find(params[:id])
+  @user = User.find(@note.user_id)
+  @note.destroy
+  redirect "/user/#{@user.id}"
+end
+
 get '/newuser' do
   erb :newuser
 end

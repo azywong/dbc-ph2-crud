@@ -1,16 +1,105 @@
+@font-face {
+  font-family: 'Swag';
+  src: url('/fonts/KGALittleSwag.ttf');
+}
+
+body {
+  color: midnightblue;
+  font-family: 'Trebuchet MS';
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
 
 th {
   text-align: left;
 }
 
+dt {
+  font-weight: bold;
+  color: midnightblue;
+  margin-left: 15px
+}
+
 dd {
   padding: 20px;
-  border: 1px solid;
+  border: 1px solid midnightblue;
   margin-left: 0;
+}
+
+header {
+  background-color: tomato;
+  color: white;
+  height: 100px;
+}
+
+.headerlink {
+  float: right;
+  padding: 5px;
+}
+
+.headerlink a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo {
+  float:left;
+  display: inline;
+}
+
+.logo a {
+  font-family: 'Swag';
+  color: white;
+  font-size: 100px;
+  text-decoration: none;
+}
+
+h1 {
+  color: midnightblue;
+  font-size: 35px;
+  border-bottom: 2px solid tomato;
+}
+
+input, textarea {
+  border: 1px solid midnightblue;
+  background-color: white;
+}
+
+.notebutton input{
+  float: right;
+  display: inline;
+  padding: 5px;
+  margin: 5px;
+}
+
+.container li {
+  width: 85%;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  display: block;
+  background-color: #eeeeee;
+  padding: 10px;
+}
+
+.container li a {
+  color: tomato;
+  font-weight: bold;
+}
+
+.headerlink ul li {
+  display: inline;
+  float: left;
+}
+
+.headerlink input {
+  margin: 5px;
+}
+
+.newuser {
+  float: right;
 }
