@@ -8,3 +8,9 @@
 th {
   text-align: left;
 }
+
+dd {
+  padding: 20px;
+  border: 1px solid;
+  margin-left: 0;
+}

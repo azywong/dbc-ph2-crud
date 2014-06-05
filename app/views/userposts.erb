@@ -1,0 +1,8 @@
+<div class="container">
+  <h1><%= User.find(params[:id]).username %>'s Posts</h1>
+  <ol>
+  <% Note.where(user_id: params[:id]).each do |note| %>
+    <li><a href="/note/<%= note.id %>"><%= note.title %></a></li>
+  <% end %>
+  </ol>
+</div>

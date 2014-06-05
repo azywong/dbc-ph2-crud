@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Edit this shit!</h1>
+    <form id="new" action="/edit/<%= params[:id] %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <p>Title: <input type="text" name="title" size="10" value="<%= @note.title %>"></p>
+      <p>Content: <textarea name="content" size="50" value="<%= @note.content %>"></textarea></p>
+      <p><input class="sub_button" type="submit" value="Submit!"></p>
+    </form>
+</div>

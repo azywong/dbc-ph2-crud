@@ -1,23 +1,21 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, <%= em("world!") %></p>
-
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <h1>Welcome to Notes!</h1>
+  <% if session[:user_id] != nil %>
+  <form id="logout" action="/logout" method="post">
+    <p><input class="sub_button" type="submit" value="logout"></p>
+  </form>
+  <p>Welcome <b><a href="/user/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a></b></p>
+      <form id="new" action='/new' method="post">
+        <p>Title: <input type="text" name="title" size="10"></p>
+        <p>Content: <textarea name="content" size="50"></textarea></p>
+        <p><input class="sub_button" type="submit" value="Submit!"></p>
+      </form>
+  <% else %>
+    <form id="log_in" action='/authenticate' method="post">
+      <p>Username: <input type="text" name="username" size="10"></p>
+      <p>Password: <input type="password" name="password" size="10"></p>
+      <p><input class="sub_button" type="submit" value="Log In!"></p>
+    </form>
+    <p><a href="/newuser">New User?</a></p>
+  <% end %>
 </div>
