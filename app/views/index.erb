@@ -12,4 +12,12 @@
   <% else %>
   <h1>Welcome to Notes!</h1>
   <% end %>
+
+  <h1>All Notes</h1>
+  <% Note.all.each do |note| %>
+    <dl>
+      <dt><%= note.title %></dt>
+        <dd><%= note.content %></dd>
+    </dl>
+  <% end %>
 </div>
